@@ -54,9 +54,9 @@ window.addEventListener('keydown', (event) => {
 // })
 
 
-const fadeInAll = [...document.querySelectorAll('.fade-in')];
-const slidersX = [...document.querySelectorAll('.slide-in')];
-const slidersY = [...document.querySelectorAll('.slide-up')];
+const fadeInAll = [...document.body.querySelectorAll('.fade-in')];
+const slidersX = [...document.body.querySelectorAll('.slide-in')];
+const slidersY = [...document.body.querySelectorAll('.slide-up')];
 const appearOptions= {
     root: null,
     threshold: 0,
@@ -90,48 +90,73 @@ const longLinkAnchor = document.querySelector('.long-link')
 const shortLinkAnchor = document.querySelector('.short-link')
 
 
-
+// 
 shortenform.addEventListener('submit', (e) => {
     e.preventDefault();
-    console.log(e.target.querySelector('input').value)
-    fetchShortLink(e)
-    
+    const isValid = validateUrl(e.target.querySelector('input').value)
+
+    if(isValid) {
+        document.querySelector('.input').removeAttribute('data-invalid')
+        document.body.querySelector('.error').removeAttribute('data-invalid')
+        fetchShortLink(e) 
+    } else {
+   
+        document.querySelector('.input').setAttribute('data-invalid', '')
+        document.querySelector('.error').setAttribute('data-invalid', '') 
+        document.querySelector('.input').focus()
+    }   
 })
 
+// Validate an Url 
+function validateUrl(url) {
+    const reg = /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
+    return  reg.test(url)? true: false;
+}
+
+// localStorage.clear()
+
 async function fetchShortLink(event) {
-    const url =`https://api.shrtco.de/v2/shorten?url=${event.target.querySelector('input').value}`
+    const longLink = event.target.querySelector('input').value;
+    const url =`https://api.shrtco.de/v2/shorten?url=${longLink}`;
+    const storage = JSON.parse(localStorage.getItem('links'));
+    console.log(typeof storage)
+  
     try {
         const result = await fetch(url);
         const data = await result.json();
-        const shortLink = data.result.short_link;
-        console.log(shortLink)
-        createShortLinkBox(event, shortLink)
-        document.querySelector('.input').value = ''
+        const shortLink = data.result.full_short_link3;
+     
+        createShortLinkBox(longLink , shortLink);
+        storage.push({original__link: longLink, short__link:shortLink});
+        localStorage.setItem("links", JSON.stringify(storage));
+      
     } catch(error){
-        console.log('Error is ', error)
+        console.log('Error is ', error);
     }
+    event.target.querySelector('.input').value = '';
 }
+
+
 // Create the short link box dynamically 
-const createShortLinkBox = function(event, value) {
+const createShortLinkBox = function(longLink, value) {
     const formSection = document.querySelector('.form .row')
     const parentLinkBox = document.createElement('div');
     parentLinkBox.className = 'link__box'
-    parentLinkBox.innerHTML = `
+    parentLinkBox.insertAdjacentHTML("beforeend", `
         <div class="long-link__box">
-            <a href="#" class="long-link">${event.target.querySelector('input').value}</a>
+            <a href="#" class="long-link">${longLink}</a>
         </div>
 
         <div class="short-link__box">
             <a href="#" class="short-link">${value}</a>
             <button id="copyBtn" type="button" class="btn js-copy-btn s-br">Copy</button>
-        </div>`;
+        </div>`);
     formSection.appendChild(parentLinkBox)
 
-
+  
     const copyBtnAll = [...document.querySelectorAll('.js-copy-btn')]
     copyBtnAll.forEach(ele => {
        
-
         ele.addEventListener('click', (e) => {
             copyBtnAll.forEach(ele => {
                 ele.textContent = 'Copy'
@@ -143,13 +168,20 @@ const createShortLinkBox = function(event, value) {
         })
     }) 
 }
+  document.addEventListener("DOMContentLoaded", () => {
+      const storage = JSON.parse(localStorage.getItem('links'))
+      console.log(storage)
+    for(ele in storage){
+        // console.log(storage[ele].short__link)
+        createShortLinkBox(storage[ele].original__link, storage[ele].short__link)
+    }
+    })
 
 //   https://stackoverflow.com/questions/65837788/copy-to-clipboard-using-textarea-and-document-execcommandcopy-is-a-problem-wh 
 function copyTextToclipborad(text) {
     var textarea = document.createElement("textarea");
     textarea.value = text;
     
-
     // avoid Scrolling to bottom
     textarea.style.top = "0";
     textarea.style.left = "0";

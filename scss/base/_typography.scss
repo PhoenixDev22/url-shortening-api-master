@@ -373,7 +373,6 @@ body {
 .shorten-form > .row {
     gap: 14px;
     @include media('lg') {
-        
         @include flex($direction: row, $justify:space-between);
         align-items: baseline;
     }
@@ -386,39 +385,41 @@ body {
     width: 100%;
 }
 .input {
-    padding: .58rem 0.75rem;
+    padding: 11px 0.75rem;
     font-weight: 500;
-    border: 3px solid $white;
+    // border: 3px solid $white;
+    @include media('lg') {
+        flex: 1
+    }
 }
-.input:invalid{
-    border: 3px solid red
+  
+.input[data-invalid]{
+    border: 3px solid #f46262;
+    color: #f46262;
 }
-.input:valid{
-    border: 3px solid $white;
+// .input:valid{
+//     border: 3px solid $white;
+// }
+.input[data-invalid]:focus {
+    outline: none;
 }
 .input:focus {
-    border: none;
     outline: .3em dashed $white;
     outline-offset: .2em;
 }
 .input, form button{
     width: 100%;
 }
-.input {
-    @include media('lg') {
-        flex: 1
-    }
-}
 .error {
     position: relative;
     bottom: -.5rem;
     left: 0;
-    color: red;
+    color: #f46262;
     font-size: .875rem;
     text-align: left;
     display: none;
 }
-.eroor.display {
+.error[data-invalid]{
     display: block;
 }
 .shorten-form button {
@@ -441,7 +442,6 @@ body {
     }
 }
 .long-link {
-  
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -533,6 +533,7 @@ body {
 }
 .lower-section {
     position: relative;
+    margin-bottom: 100px;
 }
 .lower-section::before {
     content: '';
@@ -598,13 +599,15 @@ body {
 }
 .card:nth-child(2) {
     @include media('lg') {
-        margin-top: 90px
+        // margin-top: 88px
+        transform: translateY(44px);
     } 
 }
 
 .card:nth-child(3) {
     @include media('lg') {
-        margin-top: 140px
+        // margin-top: 132px
+           transform: translateY(88px);
     } 
 }
 
