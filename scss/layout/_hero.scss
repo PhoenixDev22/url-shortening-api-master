@@ -1,0 +1,42 @@
+@use '../abstracts/mixins' as * ;
+@use '../abstracts/variables' as * ;
+
+// Hero section
+.hero {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 80px;
+    @include media('md') {
+        margin-bottom: 0;
+    }
+}
+.hero .row {
+    flex-direction: column-reverse;
+    gap: 25px;
+    @include media('md') {
+        flex-direction: row;
+    }
+}
+.hero__content {
+    max-width: 520px;
+    @include flex($direction:column, $justify: flex-start); 
+    @include media('md') {
+        align-items: flex-start;
+    }
+}
+.hero__text{
+    color: $grayish-violet;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    font-weight: 500;
+    margin-bottom: 32px;
+    @include media('lg') {
+        margin-bottom: 1rem
+    }
+}
+
+// The trick that the image comes out the container is let the img width: 150% and give it max-width: 725px that way it will shrink when you resize the bowser smaller
+.hero__image img{
+    max-width: 750px;
+    width: 150%;
+}

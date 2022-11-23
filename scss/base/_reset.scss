@@ -74,4 +74,23 @@ select {
   }
 }
 
+// Added Styles
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
 
+input {
+  border: none;
+}
+button {
+  border: none;
+  background: none;
+  padding: 0;
+}  
+a { 
+  text-decoration: none;
+}

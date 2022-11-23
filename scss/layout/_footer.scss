@@ -1,0 +1,100 @@
+@use '../abstracts/mixins' as * ;
+@use '../abstracts/variables' as * ;
+// Footer
+.footer {
+    font-size: .9375rem;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    background-color: $very-dark-violet;
+    color: $white;
+    text-align: center;
+
+    @include media('lg') {
+        text-align: left;
+        padding-bottom: 70px;
+        padding-top: 70px;
+    }
+}
+.footer__nav {
+    @include flex($direction:column, $justify: space-between); 
+
+    @include media('lg') {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}
+// Footer's logo 
+.ft__logo {
+    display: inline-block;
+    width: 120px;
+    margin-bottom: 50px;
+    &:focus {
+        outline: .2em dashed $cyan;
+        outline-offset: .2em
+    }
+}
+.ft__logo  path{
+    fill: $white;
+    transition: all .35s ease-in;
+}
+.ft__logo:hover path {
+    fill: $cyan;
+}
+
+
+.col-3:nth-of-type(3) {
+    margin-bottom: 40px;
+    @include media('lg') {
+        margin-bottom: 0;
+    }
+}
+
+// Footer's Nav Links
+.ft__nav-link {
+    color: $gray;
+    display: block;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    &:focus {
+        outline: .2em dashed $cyan;
+        outline-offset: .2em
+    }
+    &:hover {
+        color: $cyan;
+        transition: color .2s ease-in-out;
+    }
+}
+
+// Social links 
+.social-links {
+    flex-direction: row;
+    gap: 22px;
+    max-width: 168px
+}
+.social-link{
+    @include flex($direction:column, $justify: center); 
+    & path {
+        transition: .2s ease-in-out;
+      
+    }
+    &:hover path {
+        fill: $cyan;
+    }
+    &:focus {
+        outline: .2em dashed $cyan;
+        outline-offset: .2em
+    }
+}
+
+// Atribution 
+.attribution {
+    line-height: 1.3;
+}
+.attribution__link {
+    display: inline-block;
+    color: $gray;
+    transition: color .2s ease-in-out;
+    &:hover {
+        color: $cyan
+    }
+}

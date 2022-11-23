@@ -1,0 +1,33 @@
+@use '../abstracts/mixins' as * ;
+@use '../abstracts/variables' as * ;
+
+// Buttons
+.btn {
+    display: block;
+    padding: .75rem 1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: $white;
+    background-color: $cyan;
+    transition: .2s ease-in-out;
+
+    @include media('lg') {
+        padding: 11px 20px
+    }
+
+    &:hover {
+       background-color: $light-cyan;
+    }
+    &:focus {
+        outline: .2em dashed $cyan;
+        outline-offset: .2em
+    }
+}
+.btn-rounded {
+    font-size: 1.25rem;
+    border-radius: 50px;
+}
+.btn-rounded-small {
+    font-size: 1rem;
+    border-radius: 50px;
+}

@@ -1,0 +1,93 @@
+@use '../abstracts/mixins' as * ;
+@use '../abstracts/variables' as * ;
+
+// Features
+.features {
+    background-color: hsl(250deg 30% 96%);
+    padding: 90px 0;
+}
+.upper-section {
+    // margin-bottom:  90px;
+    max-width: 520px;
+    margin: 0 auto 90px;
+    text-align: center;
+}
+.lower-section {
+    position: relative;
+    margin-bottom: 100px;
+}
+.lower-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: 8px;
+    background-color: $cyan;
+    @include media('lg') {
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        height: 8px;
+        width: 100%;
+    }
+}
+.lower-section .row {
+    gap: 90px;
+    @include media('md') {
+        text-align: center
+    }
+    @include media('lg') {
+        flex-direction: row;
+        gap: 28px;
+        text-align: left;
+    }
+}
+
+// Card in the Features section
+.card {
+    background-color: $white;
+    position: relative;
+    padding: 80px 1.5rem 40px; 
+    border-radius: 7px;
+    @include media('md') {
+        max-width: 350px;
+    }
+}
+.card__image {
+    width: 88px;
+    height: 88px;
+    @include flex($direction:row, $justify: center); 
+    border-radius: 50%;
+    background-color: $dark-violet;
+    position: absolute;
+    top: -44px;
+    left: 50%;
+    transform: translateX(-50%);
+    @include media('lg') {
+        left: 72px;
+    }
+}
+.card__text {
+    font-size: 1rem;
+    line-height: 1.7;
+    font-weight: 500;
+    color: $grayish-violet;
+    @include media('lg') {
+        font-size: .935rem;
+    }
+}
+.card:nth-child(2) {
+    @include media('lg') {
+        // margin-top: 88px
+        transform: translateY(44px);
+    } 
+}
+
+.card:nth-child(3) {
+    @include media('lg') {
+        // margin-top: 132px
+           transform: translateY(88px);
+    } 
+}

@@ -1,3 +1,6 @@
+@use '../abstracts/mixins' as * ;
+@use '../abstracts/variables' as * ;
+
 .container {
     max-width: 1158px;
     margin-inline: auto;
@@ -18,3 +21,40 @@
     white-space: nowrap !important;
 }
 
+.resize-animation-stopper {
+    animation: none !important;
+    transition: none !important;
+}
+  
+body {
+    font-family: $main-font;
+    text-align: center;
+    @include media('md') {
+        text-align: left;
+    }
+}
+
+.row {
+    @include flex($direction: column, $justify: space-between);
+}
+
+.disable-scroll {
+    overflow: hidden;
+}
+// Intersection observer classes
+.from-left {
+    transform: translateX(-50%)
+}
+.from-right {
+    transform: translateX(50%)
+}
+.from-left, 
+.from-right {
+    transition: opacity .35s ease-in, transform .6s linear;
+    opacity: 0;
+}
+.from-left.appear, 
+.from-right.appear {
+    transform: translateX(0);
+    opacity: 1;
+}
