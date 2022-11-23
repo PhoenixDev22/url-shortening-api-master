@@ -2,14 +2,6 @@ const navBarOverlay = document.querySelector(".header__navbar")
 const toggleBtn = document.getElementById('toggleNavigation');
 const navigationItems = document.getElementById('navigation-items')
 
-
-const   t = document.querySelector("[data-toggle]"),
-        e = t.getAttribute('aria-controls'),
-        r = document.querySelector("#".concat(e))
-        console.log(e, r)
- 
-
-
 function toggleNavigation() {
     navigationItems.hasAttribute("data-visible") 
     ? toggleBtn.setAttribute("aria-expanded", true)
@@ -53,7 +45,6 @@ window.addEventListener('keydown', (event) => {
 //     }, 400);
 // })
 
-
 const fadeInAll = [...document.body.querySelectorAll('.fade-in')];
 const slidersX = [...document.body.querySelectorAll('.slide-in')];
 const slidersY = [...document.body.querySelectorAll('.slide-up')];
@@ -74,36 +65,29 @@ const appearOnScrollobserver = new IntersectionObserver((entries,appearOnScrollo
     })
 }, appearOptions)
 
-// fadeInAll.forEach(ele => {
-//     appearOnScrollobserver.observe(ele)
-// })
 slidersX.forEach(ele => {
     appearOnScrollobserver.observe(ele)
 })
-// slidersY.forEach(ele => {
-//     appearOnScrollobserver.observe(ele)
-// })
 
 const submitBtn = document.getElementById('submitBtn')
 const shortenform = document.getElementById('shortenForm')
 const longLinkAnchor = document.querySelector('.long-link')
 const shortLinkAnchor = document.querySelector('.short-link')
 
-
 // 
 shortenform.addEventListener('submit', (e) => {
     e.preventDefault();
-    const isValid = validateUrl(e.target.querySelector('input').value)
+    const input = e.target.querySelector('input')
+    const isValid = validateUrl(input.value)
 
     if(isValid) {
-        document.querySelector('.input').removeAttribute('data-invalid')
+        input.removeAttribute('data-invalid')
         document.body.querySelector('.error').removeAttribute('data-invalid')
         fetchShortLink(e) 
     } else {
-   
-        document.querySelector('.input').setAttribute('data-invalid', '')
+        input.setAttribute('data-invalid', '')
         document.querySelector('.error').setAttribute('data-invalid', '') 
-        document.querySelector('.input').focus()
+        input.focus()
     }   
 })
 
@@ -112,8 +96,6 @@ function validateUrl(url) {
     const reg = /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
     return  reg.test(url)? true: false;
 }
-
-// localStorage.clear()
 
 async function fetchShortLink(event) {
     const longLink = event.target.querySelector('input').value;
@@ -125,7 +107,7 @@ async function fetchShortLink(event) {
         const result = await fetch(url);
         const data = await result.json();
         const shortLink = data.result.full_short_link3;
-     
+        console.log(data.result.full_short_link3)
         createShortLinkBox(longLink , shortLink);
         storage.push({original__link: longLink, short__link:shortLink});
         localStorage.setItem("links", JSON.stringify(storage));
@@ -138,7 +120,7 @@ async function fetchShortLink(event) {
 
 
 // Create the short link box dynamically 
-const createShortLinkBox = function(longLink, value) {
+const createShortLinkBox = function(longLink, shortLink) {
     const formSection = document.querySelector('.form .row')
     const parentLinkBox = document.createElement('div');
     parentLinkBox.className = 'link__box'
@@ -148,7 +130,7 @@ const createShortLinkBox = function(longLink, value) {
         </div>
 
         <div class="short-link__box">
-            <a href="#" class="short-link">${value}</a>
+            <a href="#" class="short-link">${shortLink}</a>
             <button id="copyBtn" type="button" class="btn js-copy-btn s-br">Copy</button>
         </div>`);
     formSection.appendChild(parentLinkBox)
@@ -168,16 +150,16 @@ const createShortLinkBox = function(longLink, value) {
         })
     }) 
 }
-  document.addEventListener("DOMContentLoaded", () => {
-      const storage = JSON.parse(localStorage.getItem('links'))
-      console.log(storage)
+document.addEventListener("DOMContentLoaded", () => {
+    const storage = JSON.parse(localStorage.getItem('links'))
+    console.log(storage)
+
     for(ele in storage){
-        // console.log(storage[ele].short__link)
         createShortLinkBox(storage[ele].original__link, storage[ele].short__link)
     }
-    })
+})
 
-//   https://stackoverflow.com/questions/65837788/copy-to-clipboard-using-textarea-and-document-execcommandcopy-is-a-problem-wh 
+//   Found https://stackoverflow.com/questions/65837788/copy-to-clipboard-using-textarea-and-document-execcommandcopy-is-a-problem-wh 
 function copyTextToclipborad(text) {
     var textarea = document.createElement("textarea");
     textarea.value = text;
