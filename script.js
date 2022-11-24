@@ -49,13 +49,15 @@ const fadeInAll = [...document.body.querySelectorAll('.fade-in')];
 const slidersX = [...document.body.querySelectorAll('.slide-in')];
 const slidersY = [...document.body.querySelectorAll('.slide-up')];
 const appearOptions= {
-    root: null,
+    root: document,
     threshold: 0,
     rootMargin: " 0px 0px -100px 0px"
 }
 
 const appearOnScrollobserver = new IntersectionObserver((entries,appearOnScrollobserver) => {
+   console.log(entries)
     entries.forEach(entry => {
+        console.log(entry)
         if(!entry.isIntersecting){
             return
         } else {

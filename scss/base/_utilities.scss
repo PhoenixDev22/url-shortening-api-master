@@ -42,18 +42,21 @@ body {
     overflow: hidden;
 }
 // Intersection observer classes
-.from-left {
-    transform: translateX(-50%)
+.from-up {
+    transform: translateY(-50%)
 }
 .from-right {
     transform: translateX(50%)
 }
-.from-left, 
+.from-up, 
 .from-right {
-    transition: opacity .35s ease-in, transform .6s linear;
+    transition: opacity .35s ease-in, transform .7s ease-in;
     opacity: 0;
 }
-.from-left.appear, 
+.from-up.appear{
+    transform: translateY(0);
+    opacity: 1;
+}
 .from-right.appear {
     transform: translateX(0);
     opacity: 1;
