@@ -1,6 +1,14 @@
 @use '../abstracts/mixins' as * ;
 @use '../abstracts/variables' as * ;
 
+html, body {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: auto;
+}
 .container {
     max-width: 1158px;
     margin-inline: auto;
@@ -61,3 +69,4 @@ body {
     transform: translateX(0);
     opacity: 1;
 }
+
