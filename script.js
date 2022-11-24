@@ -49,7 +49,7 @@ const fadeInAll = [...document.body.querySelectorAll('.fade-in')];
 const slidersX = [...document.body.querySelectorAll('.slide-in')];
 const slidersY = [...document.body.querySelectorAll('.slide-up')];
 const appearOptions= {
-    root: document,
+    root: document.body,
     threshold: 0,
     rootMargin: " 0px 0px -100px 0px"
 }
