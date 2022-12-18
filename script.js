@@ -79,7 +79,7 @@ async function fetchShortLink(event) {
     const longLink = event.target.querySelector('input').value;
     const url =`https://api.shrtco.de/v2/shorten?url=${longLink}`;
     let storage = JSON.parse(localStorage.getItem('links'));
-    console.log(storage)
+    
   
     try {
         const result = await fetch(url);
@@ -100,6 +100,7 @@ async function fetchShortLink(event) {
     } catch(error){
         console.log('Error is ', error);
     }
+    
     event.target.querySelector('.input').value = '';
 }
 
@@ -128,23 +129,21 @@ const createShortLinkBox = function(longLink, shortLink) {
 
     allcloseBtn.forEach(ele => {
         ele.addEventListener('click', (e) => {
-            let storage = JSON.parse(localStorage.getItem('links'))
-
+            // localStorage.clear()
+            localStorage.setItem('links', '')
+            let storage = [];
+           
             e.target.closest('.link__box').remove()
-         
 
-            for (let i = 0; i<storage.length; i++){
-               
-        
-               if (storage[i].short__link === e.target.closest('.link__box').querySelector('.short-link').textContent){
+           const allLinkBoxes = [...document.querySelectorAll('.link__box')]
+           allLinkBoxes.forEach(ele => {
 
-                    // localStorage.removeItem(`links[el]`)
-                    storage.splice(i,1)
-               }
-                
-            }
-            console.log(storage)
-
+                storage.push({
+                    original__link: ele.querySelector('.long-link').innerText,
+                    short__link: ele.querySelector('.short-link').innerText
+                })
+           })
+           localStorage.setItem('links', JSON.stringify(storage))
         })
     })
 

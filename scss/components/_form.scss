@@ -103,43 +103,23 @@
     width: 100%;
     text-align: left;
     position: relative;
+    transition: .25s ease-in-out;
     @include media('md') {
-        padding: 14px 24px;
+        padding: 14px 30px;
         gap: 1rem;
         @include flex($direction: row, $justify:space-between) 
     }
 }
-.long-link {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    max-width: 100%;
-    display: block;
-    &:hover {
-        text-decoration: underline;
-        overflow: visible;
-        word-break: break-all;
-        white-space: unset;
-    }
-    @include media('md') {
-        max-width: 300px;
-        padding: 0;
-        border: none;
-    }
-    @include media('lg') {
-        font-size: 1.25rem;
-    }
-    &:focus {
-        outline: .2em dashed $cyan;
-        outline-offset: .2em
-    }
-}
+
 .long-link__box {
     position: relative;
     padding: 10px 24px;
     @include media('md') {
         max-width: 285px;
         padding: 0;
+    }
+    @include media('lg') {
+        max-width: 400px
     }
 }
 .long-link__box::before {
@@ -152,6 +132,33 @@
     background-color: $gray;
     @include media('md') {
         display: none;
+    }
+}
+.long-link {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 100%;
+    display: block;
+    
+    &:hover {
+        text-decoration: underline;
+        overflow: visible;
+        word-break: break-all;
+        white-space: unset;
+        color: $very-dark-blue;
+    }
+    @include media('md') {
+        max-width: 300px;
+        padding: 0;
+        border: none;
+    }
+    @include media('lg') {
+        font-size: 1.25rem;
+    }
+    &:focus {
+        outline: .2em dashed $cyan;  
+        outline-offset: .2em
     }
 }
 
@@ -197,11 +204,11 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: 40px;
+    width: 52px;
+    padding: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     background-color: $dark-violet;
-    padding: 4px;
     transform: scale(.5);
     display: flex;
     z-index: 3;
@@ -210,4 +217,8 @@
     &:hover {
         background-color: $cyan;
     }
+    &:focus { 
+        outline: .4em dashed $cyan;  
+        outline-offset: .4em
+    }       
 }
