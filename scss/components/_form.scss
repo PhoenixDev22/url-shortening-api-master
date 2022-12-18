@@ -74,6 +74,9 @@
 .input, form button{
     width: 100%;
 }
+.input::placeholder {
+    color: currentColor
+}
 .error {
     position: relative;
     bottom: -.5rem;
@@ -99,8 +102,9 @@
     padding: 14px 0;
     width: 100%;
     text-align: left;
+    position: relative;
     @include media('md') {
-        padding: 14px 35px;
+        padding: 14px 24px;
         gap: 1rem;
         @include flex($direction: row, $justify:space-between) 
     }
@@ -110,7 +114,7 @@
     text-overflow: ellipsis;
     overflow: hidden;
     max-width: 100%;
-    display: inline-block;
+    display: block;
     &:hover {
         text-decoration: underline;
         overflow: visible;
@@ -133,6 +137,10 @@
 .long-link__box {
     position: relative;
     padding: 10px 24px;
+    @include media('md') {
+        max-width: 285px;
+        padding: 0;
+    }
 }
 .long-link__box::before {
     content: '';
@@ -183,4 +191,23 @@
     @include media('md') {
         width: 103px;
     } 
+}
+
+.close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: $dark-violet;
+    padding: 4px;
+    transform: scale(.5);
+    display: flex;
+    z-index: 3;
+    transform-origin: top right;
+    transition: .4s ease-in-out;
+    &:hover {
+        background-color: $cyan;
+    }
 }

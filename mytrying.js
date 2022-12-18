@@ -45,6 +45,31 @@ window.addEventListener('keydown', (event) => {
 //     }, 400);
 // })
 
+// const fadeInAll = [...document.body.querySelectorAll('.fade-in')];
+// const slidersX = [...document.body.querySelectorAll('.slide-in')];
+// const slidersY = [...document.body.querySelectorAll('.slide-up')];
+// const appearOptions= {
+//     root: document.body,
+//     threshold: 0,
+//     rootMargin: " 0px 0px -100px 0px"
+// }
+
+// const appearOnScrollobserver = new IntersectionObserver((entries,appearOnScrollobserver) => {
+//    console.log(entries)
+//     entries.forEach(entry => {
+//         console.log(entry)
+//         if(!entry.isIntersecting){
+//             return
+//         } else {
+//             entry.target.classList.add('appear')
+//             appearOnScrollobserver.unobserve(entry.target)
+//         }
+//     })
+// }, appearOptions)
+
+// slidersX.forEach(ele => {
+//     appearOnScrollobserver.observe(ele)
+// })
 
 const submitBtn = document.getElementById('submitBtn')
 const shortenform = document.getElementById('shortenForm')
@@ -124,27 +149,11 @@ const createShortLinkBox = function(longLink, shortLink) {
     formSection.appendChild(parentLinkBox)
 
     // Close button on each created box
-    const allcloseBtn = Array.from(document.querySelectorAll('.close-btn'))
-
+    const allcloseBtn = document.querySelectorAll('.close-btn')
     allcloseBtn.forEach(ele => {
         ele.addEventListener('click', (e) => {
-            let storage = JSON.parse(localStorage.getItem('links'))
-
             e.target.closest('.link__box').remove()
-         
-
-            for (let i = 0; i<storage.length; i++){
-               
-        
-               if (storage[i].short__link === e.target.closest('.link__box').querySelector('.short-link').textContent){
-
-                    // localStorage.removeItem(`links[el]`)
-                    storage.splice(i,1)
-               }
-                
-            }
-            console.log(storage)
-
+            console.log(e.target.closest('.link__box'))
         })
     })
 

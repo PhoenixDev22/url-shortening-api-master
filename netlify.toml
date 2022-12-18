@@ -1,6 +1,7 @@
 [build]
   command = "npm run build && npm run copy-redirects"
-  publish = "/"
+  publish = "/build"
+  base = "/"
 
 [[redirects]]
   from = "/*"

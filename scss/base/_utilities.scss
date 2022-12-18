@@ -1,20 +1,32 @@
 @use '../abstracts/mixins' as * ;
 @use '../abstracts/variables' as * ;
 
-html, body {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    overflow: auto;
-}
+
 .container {
     max-width: 1158px;
     margin-inline: auto;
     padding-inline: 2.2rem;
 }
 
+// .container {
+//     width: 100%;
+//     padding-right: 15px;
+//     padding-left: 15px;
+//     margin-right: auto;
+//     margin-left: auto;
+//     @include media(sm) {
+//         max-width: 540px
+//     }
+//     @include media(md) {
+//         max-width: 720px
+//     }
+//     @include media(lg) {
+//         max-width: 960px
+//     }
+//     @include media(xl) {
+//         max-width: 1140px
+//     }
+// }
 .sr-only {
     border: 0 !important;
     clip: rect(1px, 1px, 1px, 1px) !important;
@@ -49,24 +61,3 @@ body {
 .disable-scroll {
     overflow: hidden;
 }
-// Intersection observer classes
-.from-up {
-    transform: translateY(-50%)
-}
-.from-right {
-    transform: translateX(50%)
-}
-.from-up, 
-.from-right {
-    transition: opacity .35s ease-in, transform .7s ease-in;
-    opacity: 0;
-}
-.from-up.appear{
-    transform: translateY(0);
-    opacity: 1;
-}
-.from-right.appear {
-    transform: translateX(0);
-    opacity: 1;
-}
-
