@@ -36,15 +36,6 @@ window.addEventListener('keydown', (event) => {
     event.key === "Escape" && closeNavigation()
 })
 
-// let resizeTimer;
-// window.addEventListener('resize', () => {
-//     document.body.classList.add('resize-animation-stopper');
-//     clearTimeout(resizeTimer);
-//     resizeTimer = setTimeout(() => {
-//         document.body.classList.remove('resize-animation-stopper')
-//     }, 400);
-// })
-
 
 const submitBtn = document.getElementById('submitBtn')
 const shortenform = document.getElementById('shortenForm')
@@ -191,5 +182,3 @@ function copyTextToclipborad(text) {
     }
     document.body.removeChild(textarea)
 }
-
-

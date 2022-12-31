@@ -24,6 +24,7 @@
   <title>Frontend Mentor | Shortly URL shortening API Challenge</title>
 </head>
 <body>
+  <!-- ================= HEADER ============== -->
   <header>
     <div class="container">
       <nav class="header__navbar">
@@ -44,17 +45,17 @@
           </button>
 
           <!-- Navigation Items -->
-          <div id="navigation-items" class="navigation-items">
+          <div id="navigation-items" class="navigation-items" role="menu">
             <!-- Primary Navigation -->
             <ul class="primary-navigation">
-              <li><a class="nav-link" href="#features" data-aos="fade-down" data-aos-duration="1000">Features</a></li>
-              <li><a class="nav-link" href="#Pricing" data-aos="fade-down" data-aos-duration="1500">Pricing</a></li>
-              <li><a class="nav-link separator" href="#resources" data-aos="fade-down" data-aos-duration="2000">Resources</a></li>
+              <li><a role="menuitem" class="nav-link" href="#features" data-aos="fade-down" data-aos-duration="1000">Features</a></li>
+              <li><a role="menuitem" class="nav-link" href="#Pricing" data-aos="fade-down" data-aos-duration="1500">Pricing</a></li>
+              <li><a role="menuitem" class="nav-link separator" href="#resources" data-aos="fade-down" data-aos-duration="2000">Resources</a></li>
             </ul>
             <!-- Secondary Navigation -->
             <ul class="secondary-navigation">
-              <li><a class="nav-link" href="#login" data-aos="fade-down" data-aos-duration="2500">Login</a></li>
-              <li><a class="btn btn-rounded-small" href="#singUp" data-aos="fade-down" data-aos-duration="3000">Sign Up</a></li>
+              <li><a role="menuitem" class="nav-link" href="#login" data-aos="fade-down" data-aos-duration="2500">Login</a></li>
+              <li><a role="menuitem" class="btn btn-rounded-small" href="#singUp" data-aos="fade-down" data-aos-duration="3000">Sign Up</a></li>
             </ul>
           </div>
         </div>
@@ -63,7 +64,7 @@
 
   </header>
   <main>
-    <!-- ===================== Hero ============================ -->
+    <!-- ===================== HERO ============================ -->
     <section class="hero">
       <div id="scrollArea"  class="container">
         <div class="row">
@@ -83,7 +84,7 @@
       </div>
     </section>
 
-    <!-- ===================== Hero ============================ -->
+    <!-- ===================== SHORTEN URL ============================ -->
     <section class="form">
       <div class="container">  
         <div class="row">
@@ -102,16 +103,16 @@
 
             </div>
           </form>
-          <!-- Created part dynamically by Javscript is here -->
+          <!-- Created part dynamically by Javscript WILl be inserted here -->
         </div>
       </div>
     </section>
 
-     <!-- ===================== Features ============================ -->
-     <section id="#features" class="features">
+     <!-- ===================== FEATURES ============================ -->
+    <section id="#features" class="features">
       <div class="container">
 
-        <!-- Upper part  The Section  -->
+        <!-- Upper part of the Section  -->
         <div class="upper-section">
           <h2 class="header-2">Advanced Statistics</h2>
           <p class="page__para">Track how your links are performing across   the web with our advanced statistics dashboard.</p>
@@ -152,17 +153,17 @@
         </div>
 
       </div>
-     </section>
+    </section>
 
      <!-- Boost section -->
-     <section class="boost">
-        <div class="container">
-          <div class="row">
-            <h2 class="header-2">Boost your links today</h2>
-            <a href="#" class="btn btn-rounded">Get Started</a>
-          </div>
+    <section class="boost">
+      <div class="container">
+        <div class="row">
+          <h2 class="header-2">Boost your links today</h2>
+          <a href="#" class="btn btn-rounded">Get Started</a>
         </div>
-      </section>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">

@@ -84,11 +84,11 @@
     justify-content: center;
     position: absolute;
     right: 0;
-    top: 100px;
+    top: toRem(100);
     z-index: 10;
     background-color: $dark-violet;
     padding-inline: 1.5rem;
-    min-width: 300px;
+    min-width: toRem(300);
     border-radius: 7px;
     max-height: 0;
     text-align: center;
@@ -107,6 +107,10 @@
 
 .primary-navigation{
     padding-top: 40px;
+      
+    @media screen and (orientation: landscape) {
+        padding-top: 10px;
+    }
     @include media('lg') {
         padding-top: 0;
         @include flex($direction: row, $justify: flex-start);
@@ -114,6 +118,10 @@
 }
 .secondary-navigation {
     padding-bottom: 35px;
+    
+    @media screen and (orientation: landscape) {
+        padding-bottom: 15px;
+    }
     @include media('lg') {
         padding-bottom: 0;
         @include flex($direction: row, $justify: flex-end);
@@ -134,11 +142,15 @@
     transition: max-height .35s ease-in-out, overflow .25s ease 1s;
     max-height: 380px;
     visibility: visible;
-    // overflow: visible;
+    
 }
 .nav-link{
     display: block;
-    padding: .875rem 20px;
+    padding: .875rem toRem(20);
+          
+    @media screen and (orientation: landscape) {
+        padding: toRem(6) toRem(20);
+    }
     color: $white;
     font-weight: 700;
     font-size: 1rem;
@@ -172,6 +184,11 @@
     @include media('lg') {
         margin-bottom: 0;
     }
+    @media screen and (orientation: landscape) {
+        margin-bottom: 0;
+    }
+
+ 
 }
 .separator::before {
     content: '';
@@ -181,6 +198,9 @@
     width: 100%;
     height: 1px;
     background-color: rgba($color: (#fff), $alpha: .4);
+    @media screen and (orientation: landscape) {
+        display: none;
+    }
 }
 
 
