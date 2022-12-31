@@ -23,6 +23,9 @@
     @include media('md') {
         align-items: flex-start;
     }
+    @include media('xl') {
+        max-width: toRem(600);
+    }
 }
 .hero__text{
     color: $grayish-violet;
@@ -33,9 +36,11 @@
     @include media('lg') {
         margin-bottom: 1rem
     }
+    @include media('lg') {
+        font-size: 1.375rem;
+    }
 }
 
-// The trick that the image comes out the container is let the img width: 150% and give it max-width: 725px that way it will shrink when you resize the bowser smaller
 .hero__image img{
     max-width: toRem(750);
     width: 150%;

@@ -16,18 +16,18 @@
   <script src="script.js" defer></script>
 
   <!-- On scroll animations CSS file -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
   <!-- On scroll animations AOS.js JS file  -->
-  <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
    <!-- INITIALIZE AOS -->
-    <script defer src="script-aos.js"></script>
+    <!-- <script defer src="script-aos.js"></script> -->
   <title>Frontend Mentor | Shortly URL shortening API Challenge</title>
 </head>
 <body>
   <!-- ================= HEADER ============== -->
   <header>
     <div class="container">
-      <nav class="header__navbar">
+      <nav class="header__navbar" aria-label="primary">
         <!-- Logo -->
         <a class="header__logo-link" href="#home" data-aos="fade-down" data-aos-duration="500">
           <img class="header__logo-image" src="images/logo.svg" alt="Shortly">
@@ -45,17 +45,17 @@
           </button>
 
           <!-- Navigation Items -->
-          <div id="navigation-items" class="navigation-items" role="menu">
+          <div id="navigation-items" class="navigation-items">
             <!-- Primary Navigation -->
-            <ul class="primary-navigation">
-              <li><a role="menuitem" class="nav-link" href="#features" data-aos="fade-down" data-aos-duration="1000">Features</a></li>
-              <li><a role="menuitem" class="nav-link" href="#Pricing" data-aos="fade-down" data-aos-duration="1500">Pricing</a></li>
-              <li><a role="menuitem" class="nav-link separator" href="#resources" data-aos="fade-down" data-aos-duration="2000">Resources</a></li>
+            <ul class="primary-navigation" role="menu">
+              <li role="presentation"><a role="menuitem" class="nav-link" href="#features" data-aos="fade-down" data-aos-duration="1000">Features</a></li>
+              <li role="presentation"><a role="menuitem" class="nav-link" href="#Pricing" data-aos="fade-down" data-aos-duration="1500">Pricing</a></li>
+              <li role="presentation"><a role="menuitem" class="nav-link separator" href="#resources" data-aos="fade-down" data-aos-duration="2000">Resources</a></li>
             </ul>
             <!-- Secondary Navigation -->
-            <ul class="secondary-navigation">
-              <li><a role="menuitem" class="nav-link" href="#login" data-aos="fade-down" data-aos-duration="2500">Login</a></li>
-              <li><a role="menuitem" class="btn btn-rounded-small" href="#singUp" data-aos="fade-down" data-aos-duration="3000">Sign Up</a></li>
+            <ul class="secondary-navigation" role="menu">
+              <li role="presentation"><a role="menuitem" class="nav-link" href="#login" data-aos="fade-down" data-aos-duration="2500">Login</a></li>
+              <li role="presentation"><a role="menuitem" class="btn btn-rounded-small" href="#singUp" data-aos="fade-down" data-aos-duration="3000">Sign Up</a></li>
             </ul>
           </div>
         </div>
@@ -85,7 +85,7 @@
     </section>
 
     <!-- ===================== SHORTEN URL ============================ -->
-    <section class="form">
+    <div class="form">
       <div class="container">  
         <div class="row">
 
@@ -96,7 +96,7 @@
                 <div class="input-box">
                   <label for="url" class="sr-only">Enter a link to shorten it</label>
                   <input type="url" name="url" id="url" placeholder="Shorten a link here..." class="input s-br">
-                  <span class="error" aria-live="assertive" >Please add a link</span> 
+                  <span class="error" aria-live="polite" >Please add a link</span> 
                 </div>
 
               <button id="submitBtn" class="btn s-br" type="submit">Shorten It!</button>
@@ -106,10 +106,10 @@
           <!-- Created part dynamically by Javscript WILl be inserted here -->
         </div>
       </div>
-    </section>
+    </div>
 
      <!-- ===================== FEATURES ============================ -->
-    <section id="#features" class="features">
+    <div id="#features" class="features">
       <div class="container">
 
         <!-- Upper part of the Section  -->
@@ -153,23 +153,23 @@
         </div>
 
       </div>
-    </section>
+    </div>
 
      <!-- Boost section -->
-    <section class="boost">
+    <div class="boost">
       <div class="container">
         <div class="row">
           <h2 class="header-2">Boost your links today</h2>
           <a href="#" class="btn btn-rounded">Get Started</a>
         </div>
       </div>
-    </section>
+    </div>
   </main>
 
   <footer class="footer">
     <div class="container">
      
-        <nav class="footer__nav">
+        <nav class="footer__nav" aria-label="secondary">
           <a href="#home" class="ft__logo">
             <svg role="img" xmlns="http://www.w3.org/2000/svg" width="121" height="33" aria-labelledby="logo-title">
               <title id="logo-title">Shorten</title>

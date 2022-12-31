@@ -7,14 +7,13 @@
     padding: 90px 0;
 }
 .upper-section {
-    // margin-bottom:  90px;
-    max-width: 520px;
-    margin: 0 auto 90px;
+    max-width: toRem(520);
+    margin: 0 auto toRem(100);
     text-align: center;
 }
 .lower-section {
     position: relative;
-    margin-bottom: 100px;
+    margin-bottom: toRem(100);
 }
 .lower-section::before {
     content: '';
@@ -23,13 +22,13 @@
     left: 50%;
     transform: translateX(-50%);
     height: 100%;
-    width: 8px;
+    width: .5rem;
     background-color: $cyan;
     @include media('lg') {
         top: 50%;
         left: 0;
         transform: translateY(-50%);
-        height: 8px;
+        height: .5rem;
         width: 100%;
     }
 }
@@ -40,7 +39,7 @@
     }
     @include media('lg') {
         flex-direction: row;
-        gap: 28px;
+        gap: toRem(28);
         text-align: left;
     }
 }
@@ -49,24 +48,24 @@
 .card {
     background-color: $white;
     position: relative;
-    padding: 80px 1.5rem 40px; 
+    padding: toRem(80) 1.5rem toRem(40); 
     border-radius: 7px;
     @include media('md') {
-        max-width: 350px;
+        max-width: toRem(350);
     }
 }
 .card__image {
-    width: 88px;
-    height: 88px;
+    width: toRem(88);
+    height: toRem(88);
     @include flex($direction:row, $justify: center); 
     border-radius: 50%;
     background-color: $dark-violet;
     position: absolute;
-    top: -44px;
+    top: -2.75rem;
     left: 50%;
     transform: translateX(-50%);
     @include media('lg') {
-        left: 72px;
+        left: toREm(72);
     }
 }
 .card__text {
@@ -80,14 +79,12 @@
 }
 .card:nth-child(2) {
     @include media('lg') {
-        // margin-top: 88px
         transform: translateY(44px);
     } 
 }
 
 .card:nth-child(3) {
     @include media('lg') {
-        // margin-top: 132px
-           transform: translateY(88px);
+        transform: translateY(88px);
     } 
 }

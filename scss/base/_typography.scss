@@ -7,29 +7,33 @@
     line-height: 1.125;
     font-weight: 700;
     color: $very-dark-blue;
-    margin: 25px 0;
+    margin: toRem(25) 0;
     @include media('lg') {
+        font-size: 3.5rem;
+    }
+    @include media('xl') {
         font-size: 5rem;
-        letter-spacing: -2px;
+        letter-spacing: -.125rem;
         margin-bottom: 0;
     }
 }
 .header-2 {
     font-size: 1.625rem;
-    margin-bottom: 33px;  
+    margin-bottom: toRem(33);  
     color: $very-dark-blue;
     @include media('lg') {
         font-size: 2.375rem;
+        margin-bottom: toRem(18);  
     }
 }
 .header-3 {
     font-size: 1.375rem;
     color: $very-dark-blue;
-    margin-bottom: 20px;
+    margin-bottom: toRem(20);
 }
 .header-4 {
     font-size: .9375rem;
-    margin-bottom: 30px;
+    margin-bottom: toRem(30);
 }
 .page__para {
     font-size: 1rem;

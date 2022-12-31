@@ -107,36 +107,42 @@ a {
   line-height: 1.125;
   font-weight: 700;
   color: hsl(255deg, 11%, 22%);
-  margin: 25px 0;
+  margin: 1.5625rem 0;
 }
 @media screen and (min-width: 992px) {
   .header-1 {
+    font-size: 3.5rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .header-1 {
     font-size: 5rem;
-    letter-spacing: -2px;
+    letter-spacing: -0.125rem;
     margin-bottom: 0;
   }
 }
 
 .header-2 {
   font-size: 1.625rem;
-  margin-bottom: 33px;
+  margin-bottom: 2.0625rem;
   color: hsl(255deg, 11%, 22%);
 }
 @media screen and (min-width: 992px) {
   .header-2 {
     font-size: 2.375rem;
+    margin-bottom: 1.125rem;
   }
 }
 
 .header-3 {
   font-size: 1.375rem;
   color: hsl(255deg, 11%, 22%);
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 .header-4 {
   font-size: 0.9375rem;
-  margin-bottom: 30px;
+  margin-bottom: 1.875rem;
 }
 
 .page__para {
@@ -307,7 +313,9 @@ body {
 }
 
 .s-br {
-  border-radius: 8px;
+  border-radius: 0.5rem;
+  padding: 1.125rem 0.75rem;
+  font-size: 1.25rem;
 }
 
 .input-box {
@@ -317,10 +325,14 @@ body {
 
 .input {
   padding: 11px 0.75rem;
+  border: 3px solid #fff;
   font-weight: 500;
+  font-size: 1.25rem;
+  color: hsl(257deg, 7%, 63%);
 }
 @media screen and (min-width: 992px) {
   .input {
+    padding: 0.9375rem 0.75rem;
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
@@ -620,6 +632,11 @@ body {
             align-items: flex-start;
   }
 }
+@media screen and (min-width: 1200px) {
+  .hero__content {
+    max-width: 37.5rem;
+  }
+}
 
 .hero__text {
   color: hsl(257deg, 7%, 63%);
@@ -631,6 +648,11 @@ body {
 @media screen and (min-width: 992px) {
   .hero__text {
     margin-bottom: 1rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .hero__text {
+    font-size: 1.375rem;
   }
 }
 
@@ -645,8 +667,8 @@ body {
 }
 
 .header__logo-image {
-  width: 121px;
-  height: 33px;
+  width: 7.5625rem;
+  height: 2.0625rem;
 }
 
 .header__navbar {
@@ -665,11 +687,11 @@ body {
           flex-direction: row;
   padding: 2.375rem 0 1.75rem;
   position: relative;
-  gap: 22px;
+  gap: 1.375rem;
 }
 @media screen and (min-width: 992px) {
   .header__navbar {
-    padding: 46px 0;
+    padding: 2.875rem 0;
   }
 }
 
@@ -696,9 +718,9 @@ body {
 
 .toggle-btn {
   position: relative;
-  right: -16px;
-  width: 56px;
-  height: 56px;
+  right: -1rem;
+  width: 3.5rem;
+  height: 3.5rem;
   padding: 16px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -726,7 +748,7 @@ body {
 
 .line {
   height: 2px;
-  width: 24px;
+  width: 1.5rem;
   background-color: hsl(257deg, 7%, 63%);
   -webkit-transition: 0.4s ease-in-out;
   -o-transition: 0.4s ease-in-out;
@@ -771,12 +793,12 @@ body {
           justify-content: center;
   position: absolute;
   right: 0;
-  top: 6.25rem;
+  top: min(6.25rem, 25vh);
   z-index: 10;
   background-color: hsl(257deg, 27%, 26%);
   padding-inline: 1.5rem;
   min-width: 18.75rem;
-  border-radius: 7px;
+  border-radius: 0.5rem;
   max-height: 0;
   text-align: center;
   overflow: hidden;
@@ -786,7 +808,7 @@ body {
 }
 @media screen and (min-width: 992px) {
   .navigation-items {
-    max-height: 133px;
+    max-height: 8.3125rem;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -809,11 +831,11 @@ body {
 }
 
 .primary-navigation {
-  padding-top: 40px;
+  padding-top: 2.5rem;
 }
 @media screen and (orientation: landscape) {
   .primary-navigation {
-    padding-top: 10px;
+    padding-top: 0.625rem;
   }
 }
 @media screen and (min-width: 992px) {
@@ -836,11 +858,11 @@ body {
 }
 
 .secondary-navigation {
-  padding-bottom: 35px;
+  padding-bottom: 2.1875rem;
 }
 @media screen and (orientation: landscape) {
   .secondary-navigation {
-    padding-bottom: 15px;
+    padding-bottom: 0.9375rem;
   }
 }
 @media screen and (min-width: 992px) {
@@ -859,7 +881,7 @@ body {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    gap: 12px;
+    gap: toREm(12);
   }
 }
 
@@ -878,7 +900,7 @@ body {
   -webkit-transition: max-height 0.35s ease-in-out, overflow 0.25s ease 1s;
   -o-transition: max-height 0.35s ease-in-out, overflow 0.25s ease 1s;
   transition: max-height 0.35s ease-in-out, overflow 0.25s ease 1s;
-  max-height: 380px;
+  max-height: 23.75rem;
   visibility: visible;
 }
 
@@ -900,7 +922,7 @@ body {
 @media screen and (min-width: 992px) {
   .nav-link {
     color: hsl(257deg, 7%, 63%);
-    padding: 0.875rem 15px;
+    padding: 0.875rem toREm(15);
   }
 }
 .nav-link:focus {
@@ -917,7 +939,7 @@ body {
 }
 
 .secondary-navigation .nav-link {
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
 }
 @media screen and (min-width: 992px) {
   .secondary-navigation .nav-link {
@@ -926,7 +948,7 @@ body {
 }
 
 .separator {
-  margin-bottom: 40px;
+  margin-bottom: 2.5rem;
   position: relative;
 }
 @media screen and (min-width: 992px) {
@@ -944,7 +966,7 @@ body {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -20px;
+  bottom: -1.25rem;
   width: 100%;
   height: 1px;
   background-color: rgba(255, 255, 255, 0.4);
@@ -961,14 +983,14 @@ body {
 }
 
 .upper-section {
-  max-width: 520px;
-  margin: 0 auto 90px;
+  max-width: 32.5rem;
+  margin: 0 auto 6.25rem;
   text-align: center;
 }
 
 .lower-section {
   position: relative;
-  margin-bottom: 100px;
+  margin-bottom: 6.25rem;
 }
 
 .lower-section::before {
@@ -980,7 +1002,7 @@ body {
       -ms-transform: translateX(-50%);
           transform: translateX(-50%);
   height: 100%;
-  width: 8px;
+  width: 0.5rem;
   background-color: hsl(180deg, 66%, 49%);
 }
 @media screen and (min-width: 992px) {
@@ -990,7 +1012,7 @@ body {
     -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
             transform: translateY(-50%);
-    height: 8px;
+    height: 0.5rem;
     width: 100%;
   }
 }
@@ -1009,7 +1031,7 @@ body {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    gap: 28px;
+    gap: 1.75rem;
     text-align: left;
   }
 }
@@ -1017,18 +1039,18 @@ body {
 .card {
   background-color: #fff;
   position: relative;
-  padding: 80px 1.5rem 40px;
+  padding: 5rem 1.5rem 2.5rem;
   border-radius: 7px;
 }
 @media screen and (min-width: 768px) {
   .card {
-    max-width: 350px;
+    max-width: 21.875rem;
   }
 }
 
 .card__image {
-  width: 88px;
-  height: 88px;
+  width: 5.5rem;
+  height: 5.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1045,7 +1067,7 @@ body {
   border-radius: 50%;
   background-color: hsl(257deg, 27%, 26%);
   position: absolute;
-  top: -44px;
+  top: -2.75rem;
   left: 50%;
   -webkit-transform: translateX(-50%);
       -ms-transform: translateX(-50%);
@@ -1053,7 +1075,7 @@ body {
 }
 @media screen and (min-width: 992px) {
   .card__image {
-    left: 72px;
+    left: toREm(72);
   }
 }
 
@@ -1129,8 +1151,8 @@ body {
 
 .footer {
   font-size: 0.9375rem;
-  padding-bottom: 50px;
-  padding-top: 50px;
+  padding-bottom: 3.125rem;
+  padding-top: 3.125rem;
   background-color: hsl(260deg, 8%, 14%);
   color: #fff;
   text-align: center;
@@ -1138,8 +1160,8 @@ body {
 @media screen and (min-width: 992px) {
   .footer {
     text-align: left;
-    padding-bottom: 70px;
-    padding-top: 70px;
+    padding-bottom: 3.125rem;
+    padding-top: 4.375rem;
   }
 }
 
@@ -1172,8 +1194,8 @@ body {
 
 .ft__logo {
   display: inline-block;
-  width: 120px;
-  margin-bottom: 50px;
+  width: 7.5rem;
+  margin-bottom: 3.125rem;
 }
 .ft__logo:focus {
   outline: 0.2em dashed hsl(180deg, 66%, 49%);
@@ -1192,7 +1214,7 @@ body {
 }
 
 .col-3:nth-of-type(3) {
-  margin-bottom: 40px;
+  margin-bottom: 2.5rem;
 }
 @media screen and (min-width: 992px) {
   .col-3:nth-of-type(3) {
@@ -1222,7 +1244,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  gap: 22px;
+  gap: 1.375rem;
   max-width: 168px;
 }
 
@@ -1268,4 +1290,3 @@ body {
 .attribution__link:hover {
   color: hsl(180deg, 66%, 49%);
 }
-
