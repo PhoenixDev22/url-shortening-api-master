@@ -650,15 +650,22 @@ body {
     margin-bottom: 1rem;
   }
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1200px) {
   .hero__text {
     font-size: 1.375rem;
+    margin-bottom: 2rem;
   }
 }
 
 .hero__image img {
   max-width: 46.875rem;
   width: 150%;
+}
+@media screen and (min-width: 1200px) {
+  .hero__image img {
+    max-width: 50rem;
+    width: 160%;
+  }
 }
 
 .header__logo-link:focus {
@@ -1075,7 +1082,7 @@ body {
 }
 @media screen and (min-width: 992px) {
   .card__image {
-    left: toREm(72);
+    left: 4.5rem;
   }
 }
 
@@ -1162,6 +1169,34 @@ body {
     text-align: left;
     padding-bottom: 3.125rem;
     padding-top: 4.375rem;
+  }
+}
+
+.middle-part {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+@media screen and (min-width: 992px) {
+  .middle-part {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    gap: 3rem;
   }
 }
 

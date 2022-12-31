@@ -16,6 +16,15 @@
         padding-top: toRem(70);
     }
 }
+.middle-part {
+    @include flex($direction:column, $justify: space-between); 
+
+    @include media('lg') {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 3rem
+    }
+}
 .footer__nav {
     @include flex($direction:column, $justify: space-between); 
 

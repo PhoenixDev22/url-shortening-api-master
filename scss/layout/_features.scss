@@ -65,7 +65,7 @@
     left: 50%;
     transform: translateX(-50%);
     @include media('lg') {
-        left: toREm(72);
+        left: toRem(72);
     }
 }
 .card__text {

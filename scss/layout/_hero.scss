@@ -36,12 +36,17 @@
     @include media('lg') {
         margin-bottom: 1rem
     }
-    @include media('lg') {
+    @include media('xl') {
         font-size: 1.375rem;
+        margin-bottom: 2rem
     }
 }
 
 .hero__image img{
     max-width: toRem(750);
     width: 150%;
+    @include media('xl') {
+        max-width: toRem(800);
+        width: 160%;
+    }
 }
