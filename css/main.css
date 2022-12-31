@@ -314,8 +314,12 @@ body {
 
 .s-br {
   border-radius: 0.5rem;
-  padding: 1.125rem 0.75rem;
-  font-size: 1.25rem;
+}
+@media screen and (min-width: 992px) {
+  .s-br {
+    padding: 1.125rem 0.75rem;
+    font-size: 1.25rem;
+  }
 }
 
 .input-box {
@@ -324,15 +328,15 @@ body {
 }
 
 .input {
-  padding: 11px 0.75rem;
+  padding: 9px 0.75rem;
   border: 3px solid #fff;
   font-weight: 500;
-  font-size: 1.25rem;
   color: hsl(257deg, 7%, 63%);
 }
 @media screen and (min-width: 992px) {
   .input {
     padding: 0.9375rem 0.75rem;
+    font-size: 1.25rem;
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;

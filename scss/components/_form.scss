@@ -46,21 +46,23 @@
 }
 .s-br {
     border-radius: .5rem;
-    padding: toRem(18) 0.75rem;
-    font-size: 1.25rem;
+    @include media('lg') {
+        padding: toRem(18) 0.75rem;
+        font-size: 1.25rem;     
+    }  
 }
 .input-box {
     position: relative;
     width: 100%;
 }
 .input {
-    padding: 11px 0.75rem;
+    padding: 9px 0.75rem;
     border: 3px solid #fff;
     font-weight: 500;
-    font-size: 1.25rem;
     color: $grayish-violet;
     @include media('lg') {
         padding: toRem(15) 0.75rem;
+        font-size: 1.25rem; 
         flex: 1
     }
 }
